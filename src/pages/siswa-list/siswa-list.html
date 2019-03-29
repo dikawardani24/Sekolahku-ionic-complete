@@ -1,0 +1,94 @@
+<!--
+  Generated template for the SiswaListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{titlePage}}</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="startAddSiswaPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let siswa of siswaList">
+      <ion-item>
+        <ion-icon name="person" style="font-size: 50px; color: #488aff; margin-right: 0px;" item-start></ion-icon>
+        <ion-grid item-end no-padding style="margin-left: 0px;">
+          <ion-row>
+            <ion-col>
+              <ion-label style="font-weight: bold; font-size: 20px; max-width: 200px;">{{siswa.namaDepan}}
+                {{siswa.namaBelakang}}</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label text-end>{{siswa.gender}}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-label>{{siswa.jenjang}}</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label text-end>{{siswa.noHp}}</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="startDetailSiswaPage(siswa)">
+          <ion-icon name="information-circle" style="font-size: 25px"></ion-icon>
+          Detail
+        </button>
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="startUpdateSiswaPage(siswa)">
+          <ion-icon name="create" style="font-size: 25px"></ion-icon>
+          Update
+        </button>
+
+        <button ion-button color="danger" (click)="showConfirmationDelete(siswa)">
+          <ion-icon name="trash" style="font-size: 25px"></ion-icon>
+          Hapus
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <!-- <ion-list >
+    <ion-item *ngFor="let item of siswaList"  >
+      <ion-icon name="person" style="font-size: 50px; color: blue; margin-right: 0px;" item-start></ion-icon>
+      <ion-grid item-end no-padding style="margin-left: 0px;">
+        <ion-row  >
+          <ion-col >
+              <ion-label style="font-weight: bold; font-size: 20px; max-width: 200px;">Full Name</ion-label>
+          </ion-col>
+          <ion-col >
+              <ion-label text-end>Gender</ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row >
+          <ion-col >
+              <ion-label>Jenjang</ion-label>
+          </ion-col>
+          <ion-col >
+              <ion-label text-end>No.Hp</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list> -->
+</ion-content>

@@ -1,0 +1,23 @@
+page-login {
+    // For background header of title app
+    .header-back {
+        background-color: map-get($colors, primary);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        border-bottom-left-radius: 150px;
+        border-bottom-right-radius: 150px;
+    }
+
+    // For styling text of the title app
+    .header-label {
+        font-size: 20pt;
+        font-weight: bold;
+        color: white;
+        margin-top: 10px
+    }
+    
+    // for styling the Daftar text
+    b {
+        color: map-get($map: $colors, $key: primary)
+    }
+}

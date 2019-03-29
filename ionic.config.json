@@ -1,0 +1,8 @@
+{
+  "name": "sekolahku-complete",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

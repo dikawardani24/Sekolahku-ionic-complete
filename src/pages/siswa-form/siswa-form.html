@@ -1,0 +1,130 @@
+<!--
+  Generated template for the SiswaFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{pageTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only [disabled]="!siswaFg.valid" (click)="simpan()">
+        <ion-icon name="cloud-upload"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="siswaFg">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Nama Depan</ion-label>
+            <ion-input type="text" [(ngModel)]="siswa.namaDepan" formControlName="namaDepanFc"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Nama Belakang</ion-label>
+            <ion-input type="text" [(ngModel)]="siswa.namaBelakang" formControlName="namaBelakangFc"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>No. Hp</ion-label>
+            <ion-input type="tel" [(ngModel)]="siswa.noHp" formControlName="noHpFc"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" [(ngModel)]="siswa.email" formControlName="emailFc"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Tanggal Lahir</ion-label>
+            <ion-datetime displayFormat="DD-MMMM-YYYY" pickerFormat="DD-MMMM-YYYY" [(ngModel)]="siswa.tglLahir"
+              formControlName="tglLahirFc"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Gender</ion-label>
+            <ion-select [(ngModel)]="siswa.gender" formControlName="genderFc">
+              <ion-option value="Pria">Pria</ion-option>
+              <ion-option value="Wanita">Wanita</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Jenjang</ion-label>
+            <ion-select [(ngModel)]="siswa.jenjang" formControlName="jenjangFc">
+              <ion-option *ngFor="let education of educations" [value]="education">{{education}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item no-lines>
+              Hobi
+            </ion-item>
+            <ion-item>
+              <ion-label>Membaca</ion-label>
+              <ion-checkbox [(ngModel)]="loveMembaca"  [ngModelOptions]="{standalone: true}"></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Menulis</ion-label>
+              <ion-checkbox [(ngModel)]="loveMenulis"  [ngModelOptions]="{standalone: true}"></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Menggambar</ion-label>
+              <ion-checkbox [(ngModel)]="loveMenggambar"  [ngModelOptions]="{standalone: true}"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Alamat</ion-label>
+            <ion-textarea rows="5" [(ngModel)]="siswa.alamat" formControlName="alamatFc"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button round full large (click)="simpan()" [disabled]="!siswaFg.valid">Simpan</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
