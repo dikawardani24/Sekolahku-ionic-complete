@@ -50,12 +50,12 @@ export class SiswaResponse extends AbstractResponse<Siswa> implements CrudAble<S
     }
 
     public update(model: Siswa): Promise<ManipulationResponse> {
-        let url = this.BASE_URL + "update.php"
+        let url = this.BASE_URL + "edit_siswa.php"
         let self = this
         return new Promise<ManipulationResponse>(function (resolve, reject) {
             self.http.post(url, {
                 //parameter name: value
-                siswa_id: model.id,
+                id: model.id,
                 nama_depan: model.namaDepan,
                 nama_belakang: model.namaBelakang,
                 no_hp: model.noHp,
@@ -82,7 +82,7 @@ export class SiswaResponse extends AbstractResponse<Siswa> implements CrudAble<S
         let self = this
         return new Promise<ManipulationResponse>(function (resolve, reject) {
             self.http.post(url, {
-                siswa_id: model.id
+                id: model.id
             }, {}).then((response: HTTPResponse) => {
                 let data = JSON.parse(response.data)
                 resolve({
@@ -116,12 +116,12 @@ export class SiswaResponse extends AbstractResponse<Siswa> implements CrudAble<S
     }
 
     public getByPrimaryKey(primaryKey: any): Promise<SelectResponse<Siswa>> {
-        let url = this.BASE_URL + "get_detail_siswa.php"
+        let url = this.BASE_URL + "detail_siswa.php"
         let self = this
 
         return new Promise<SelectResponse<Siswa>>(function (resolve, reject) {
             self.http.post(url, {
-                siswa_id: primaryKey
+                id: primaryKey
             }, {}).then((response: HTTPResponse) => {
                 let jsonResponse = JSON.parse(response.data)
                 let success = jsonResponse["success"]
